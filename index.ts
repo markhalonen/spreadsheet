@@ -16,9 +16,9 @@ function render() {
 
     let spreadsheet = document.getElementById("spreadsheet")
 
-    spreadsheet.style.gridTemplateColumns = Array(numColumns).fill(0).map(_ => '200px').join(' ')
+    spreadsheet.style.gridTemplateColumns = Array(numColumns).fill('200px').join(' ')
 
-    let html = Array(numColumns * numRows).fill(0).map((_, idx) => `<input class="box a" id=cell_${idx}></input>`).join('')
+    let html = Array<String>(numColumns * numRows).fill('').map((_, idx) => `<input class="box a" id=cell_${idx}></input>`).join('')
     spreadsheet.innerHTML = html
 
     Array(numColumns * numRows).fill(0).forEach((_, idx) => {
@@ -27,7 +27,7 @@ function render() {
         cell.addEventListener("keyup", function (event) {
             event.preventDefault();
             if (event.keyCode === 13) {
-                if (cell.value.startsWith("=")) {
+                if (cell.value.charAt(0) === "=") {
                     let calculationInput = cell.value.slice(1)
 
                     // de-reference A1, B1, C1 etc
