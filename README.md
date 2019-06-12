@@ -1,5 +1,5 @@
 # Spreadsheet
 
 ### Getting started
-1. `tsc -w index.ts`
+1. `tsc -w`
 2. Open `index.html` in browser
